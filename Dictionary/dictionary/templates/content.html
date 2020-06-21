@@ -1,0 +1,39 @@
+{% extends 'home.html' %}
+{% block content %}
+<div>
+	{% load static %}
+	<h1 style="color:blue">{{heading}}</h1>
+	 <audio id="player" src="{% static name %}"></audio>
+    <div>
+         <a onclick="document.getElementById('player').play()"><i class='fa fa-volume-up fa-2x'></i></a>
+     </div> 
+	<br>
+		<strong style="color:red">Definition</strong><h2>{{define}}</h2>
+	{% if examples %}
+		<strong style="color:red">Examples-:</strong>
+		{% for e in examples %}
+			{% if e %}
+			<h3>{{e}}</h3>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+	<br>
+	{% if synonyms %}
+	<strong style="color:red">Synonyms:</strong>
+		{% for s in synonyms %}
+			<p>{{ s}}</p>
+		{% endfor %}
+	{% endif %}
+
+	{% if antonyms %}
+	<strong style="color:red">Antonyms:</strong>
+		{% for a in antonyms %}
+			<p>{{a}},</p>
+		{% endfor %}
+	{% endif %}
+</div>
+{% endblock %}
+
+
+
+
